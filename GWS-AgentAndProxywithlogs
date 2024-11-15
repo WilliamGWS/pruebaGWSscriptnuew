@@ -525,7 +525,7 @@ fi
 }
 
 
-parse_args
+parse_args "$@"
 log
 BannerGWS
 check_root
