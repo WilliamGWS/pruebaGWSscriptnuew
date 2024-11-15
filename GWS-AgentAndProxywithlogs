@@ -507,7 +507,7 @@ fi
 }
 
 
-
+parse_args
 log
 BannerGWS
 check_root
