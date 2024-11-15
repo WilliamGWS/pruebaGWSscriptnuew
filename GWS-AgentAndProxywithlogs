@@ -372,7 +372,7 @@ function Install_mysql() {
                 log "=============================="
                 log "Configuracion de User, Pass y BD"
                 log "=============================="
-        mysql <<EOF || { log "Error al ejecutar comandos de configuración en MySQL." 1; exit 1; }
+        mysql <<EOF 
 CREATE DATABASE $DB_NAME CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 CREATE USER '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASSWORD';  # Cambia 'password' si es necesario
 GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'localhost';
