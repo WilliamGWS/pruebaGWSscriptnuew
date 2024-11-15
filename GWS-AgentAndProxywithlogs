@@ -26,7 +26,7 @@ ZABBIX_PROXY_VERSION="6.0"
 #VARIABLES PARA INSTALACION DE MySQL
 DB_NAME="zabbix_proxy"
 DB_USER="zabbix"  # Usuario de MySQL (cámbialo si necesitas otro usuario)
-DB_PASSWORD="A!2#Slfj!123!"  # Contraseña del usuario
+DB_PASSWORD="pass"  # Contraseña del usuario
 
 
 
