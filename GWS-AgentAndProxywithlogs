@@ -133,6 +133,24 @@ IP_ACTUAL=$(ip route get 1 | awk '{print $(NF-2);exit}')
 
 #*****************************************************************************
 
+#************** DATOS ZABBIX PROXY *******************************************
+#VALIDACION DEL HOSTNAME DEL PROXY zabbix
+# Solicitar al usuario que ingrese un dato
+# Función para obtener el nombre de host del proxy si no se proporciona como parámetro
+function Hostname_proxy (){
+  if [ -z "$HOSTNAME_PROXY" ]; then
+    echo "Ingrese el Nombre que debe tener el proxy (Nro. Oportunidad normalmente):"
+    read HOSTNAME_PROXY
+  fi
+
+  if [ -z "$HOSTNAME_PROXY" ]; then
+    log "¡Error! No se ingresó ningún dato. Por favor, vuelva a ejecutar el script."
+    exit 1
+  else
+    log "Has ingresado el siguiente nombre de proxy: $HOSTNAME_PROXY"
+  fi
+}
+
 #************** ENCRIPTACION DE ZABBIX PROXY *******************************************
 # Generar una llave PSK de 32 bytes en formato hexadecimal
 function key_Psk(){
@@ -511,6 +529,7 @@ parse_args
 log
 BannerGWS
 check_root
+Hostname_proxy
 key_Psk
 check_os_version
 check_connectivity
