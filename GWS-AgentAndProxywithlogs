@@ -415,6 +415,7 @@ function ZabbixBD() {
     if mysql --default-character-set=utf8mb4 -u"$DB_USER" -p"$DB_PASSWORD" -e "USE $DB_NAME; SHOW TABLES LIKE 'hosts';" | grep -q "hosts"; then
         log "La base de datos '$DB_NAME' ya tiene la tabla 'hosts'. No se procederá a cargar el script."
     else
+	echo "la pass es:  $DB_PASSWORD"
         log "Cargando la base de datos '$DB_NAME' desde el archivo SQL..."
         cat /usr/share/zabbix-sql-scripts/mysql/proxy.sql | mysql --default-character-set=utf8mb4 -u"$DB_USER" -p"$DB_PASSWORD" "$DB_NAME"
         log "La carga de la base de datos se completó."
