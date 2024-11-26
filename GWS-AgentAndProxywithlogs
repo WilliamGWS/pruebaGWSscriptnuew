@@ -392,7 +392,7 @@ function Install_mysql() {
                 log "=============================="
         mysql <<EOF 
 CREATE DATABASE $DB_NAME CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
-CREATE USER '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASSWORD';  # Cambia 'password' si es necesario
+CREATE USER '$DB_USER'@'localhost' IDENTIFIED BY "$DB_PASSWORD";  # Cambia 'password' si es necesario
 GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'localhost';
 SET GLOBAL log_bin_trust_function_creators = 1;
 quit
